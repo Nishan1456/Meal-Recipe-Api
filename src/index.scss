@@ -1,0 +1,217 @@
+:root {
+  --background-color: #fff;
+  --background-light: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --primary-color: rgb(255, 0, 86);
+  --text-color: #080808;
+  --text-light: #575757;
+  --font-size: 16px;
+  --animation-speed: 1;
+}
+@keyframes slideRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@function getAnimationDuration($duration: number) {
+  @return calc($duration * var(--animation-speed));
+}
+body {
+  background-color: var(--background-color);
+  font-size: var(--font-size);
+}
+.btn {
+  padding-inline: 1em;
+  background-color: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+img{
+    object-fit: cover;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+.container {
+  padding-inline: 6vw;
+}
+.main {
+  padding-block: 7vw;
+}
+.section {
+  padding-block: 5vw;
+  .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 55px;
+
+    input,
+    .btn {
+      height: 50px;
+    }
+
+    input {
+      padding: 0.75em;
+      min-width: 350px;
+      outline: none;
+      border: 1px solid #4d4d4d;
+      font-size: 1.2em;
+      border-radius: 5px 0 0 5px;
+    }
+    .btn {
+      padding-block: 0;
+      border-radius: 0 5px 5px 0;
+    }
+    svg {
+      color: #fff;
+      font-size: 1.6em;
+    }
+  }
+}
+.recipe-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-gap: 2em;
+}
+.load {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.meal-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px var(--shadow-color);
+  img {
+    height: 200px;
+    width: 100%;
+  }
+  .title {
+    font-size: 1.5em;
+    font-weight: 600;
+    padding-block: 0.5em;
+  }
+  .btn {
+    border-radius: 3px;
+    font-size: 1.2em;
+    color: #fff;
+    padding: 0.25em 0.95em;
+    margin-block: 0.25em;
+    position: relative;
+    transition: 0.3s ease-in;
+    &:hover {
+      box-shadow: 0 3px 5px var(--shadow-color);
+    }
+  }
+}
+.box {
+background-color: var(--background-light);
+  display: flex;
+  .section-image {
+    height: 0;
+    width: 50%;
+    padding-top: 50%;
+    position: relative;
+    img {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 3px;
+      box-shadow: 0 3px 5px var(--shadow-color);
+    }
+  }
+  .section-detail {
+    padding-left: 1em;
+    width: 50%;
+    transform: translateX(100%);
+    opacity: 0;
+    
+      animation: getAnimationDuration(.5s) slideRight forwards;
+   
+    .title {
+      font-size: 2.5em;
+      margin-block: 0.5em;
+      font-weight: 600;
+      border-left: 14px solid var(--primary-color);
+      
+   
+    }
+
+    .btn {
+      padding: 0.5em;
+      font-size: 1.2em;
+      border-radius: 3px;
+      min-width: 150px;
+      text-align: left;
+      margin-block: 0.25em;
+      
+      
+
+    }
+    .title1 {
+      font-size: 1.5em;
+      padding-block: 0.5em;
+      font-weight: 500;
+    }
+    p {
+      color: var(--text-light);
+      font-size: 1.1em;
+      line-height: 1.4;
+      padding-block: 0.5em;
+      text-align: justify;
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .container {
+    padding-inline: 3vw;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .container {
+    padding-inline: 5vw;
+  }
+  .box {
+    display: flex;
+    flex-direction: column;
+    .section-image {
+      width: 100%;
+    }
+    .section-detail {
+      margin-top: 1.5em;
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    padding-inline: 4vw;
+  }
+  .box {
+    display: flex;
+    flex-direction: column;
+    .section-image {
+      width: 100%;
+    }
+    .section-detail {
+      margin-top: 1.5em;
+      width: 100%;
+    }
+  }
+}
