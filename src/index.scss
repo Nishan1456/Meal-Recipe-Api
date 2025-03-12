@@ -25,6 +25,11 @@ body {
   background-color: var(--background-color);
   font-size: var(--font-size);
 }
+::selection
+{
+    background-color: #575757;
+    color: var(--primary-color);
+}
 .btn {
   padding-inline: 1em;
   background-color: var(--primary-color);
@@ -154,12 +159,13 @@ background-color: var(--background-light);
     }
 
     .btn {
-      padding: 0.5em;
+      padding: 0.75em;
       font-size: 1.2em;
       border-radius: 3px;
       min-width: 150px;
       text-align: left;
       margin-block: 0.25em;
+      clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
       
       
 
